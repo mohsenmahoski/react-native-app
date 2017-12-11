@@ -17,46 +17,47 @@ export default class Articles extends Component{
 	// 		);
 	// }
 //FlatList #############################################
-// 	_articleReturnFlatList(item , index){
-// 		console.log(index);
-//         return <Article key={index} image={item.imageUrl} body={item.body} title={item.title} />;
-// 	}
-// 	render(){
-// 		const {articles} = this.props;
-// 		return(
-// 			 <View>
-// 			 	<StatusBar
-// 			      hidden
-// 			   />
-// 			<FlatList 
-//               data={articles}
-//               renderItem={ ({item,index}) => this._articleReturnFlatList(item,index) }
-//               keyExtractor={ (item , index) => index }
-// 			  ListHeaderComponent={()=> <Header /> }
-// 			  numColumns={3}
-//               columnWrapperStyle={{ flexDirection:'row-reverse' }}
-// 			/>
-// 			 </View>
-// 			);
-// 	}
-// }
-
+	_articleReturnFlatList(item , index){
+		console.log(index);
+        return <Article navigation={this.props.navigation} key={index} image={item.imageUrl} body={item.body} title={item.title} />;
+	}
 	render(){
-		const data =[
-		  {data: ['محسن' , 'مریم' , 'مژگان'], key:'م'},
-	   	  {data: ['ندا' ,'نادر' , 'نسیم'],key:'ن'},
-	      {data: ['رضا','روزبه','روشنک'],key:'ر'},
-		];
+		const {articles} = this.props;
 		return(
-		        <SectionList 
-	                 sections={data}
-	                 renderItem={ ({item}) => <Text>{item}</Text>}
-	                 renderSectionHeader={ ({section}) => <Text style={{ color:'red' }} >{section.key}</Text> }
-		             keyExtractor={ (item , index) => index }
-		        />
+			 <View>
+			 	<StatusBar
+			      hidden
+			   />
+			<FlatList 
+              data={articles}
+              renderItem={ ({item,index}) => this._articleReturnFlatList(item,index) }
+              keyExtractor={ (item , index) => index }
+			  ListHeaderComponent={()=> <Header /> }
+			  numColumns={2}
+              columnWrapperStyle={{ flexDirection:'row-reverse' }}
+			/>
+			 </View>
 			);
 	}
 }
+//SectionList
+//##############################################################
+// 	render(){
+// 		const data =[
+// 		  {data: ['محسن' , 'مریم' , 'مژگان'], key:'م'},
+// 	   	  {data: ['ندا' ,'نادر' , 'نسیم'],key:'ن'},
+// 	      {data: ['رضا','روزبه','روشنک'],key:'ر'},
+// 		];
+// 		return(
+// 		        <SectionList 
+// 	                 sections={data}
+// 	                 renderItem={ ({item}) => <Text>{item}</Text>}
+// 	                 renderSectionHeader={ ({section}) => <Text style={{ color:'red' }} >{section.key}</Text> }
+// 		             keyExtractor={ (item , index) => index }
+// 		        />
+// 			);
+// 	}
+// }
 const styles =StyleSheet.create({
 	container:{
 		flexWrap:'wrap',

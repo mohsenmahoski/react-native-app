@@ -5,7 +5,7 @@ export default class Header extends Component{
 	render(){
 		return(
              <View style={styles.container}>
-             	<Text style={styles.HederText} >sssss</Text>
+             	<Text style={styles.HederText} >مجله آموزشی</Text>
              </View>
 			);
 	}
@@ -13,12 +13,14 @@ export default class Header extends Component{
 
 const styles = StyleSheet.create({
 	container:{
-		backgroundColor:'#eaf2f5',
+		backgroundColor:'#6b52ae',
 		height:50,
 		justifyContent:'center',
 		alignItems:'center',
 	},
 	HederText:{
+		fontFamily:'IRANSansMobile_Bold',
+		fontSize:14,
 		color:'white',
 	}
 });

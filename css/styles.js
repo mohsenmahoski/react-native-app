@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet,Platform} from 'react-native';
 
  const styles=StyleSheet.create({
   main:{
@@ -41,7 +41,6 @@ import {StyleSheet} from 'react-native';
 
  label:{
   fontFamily:'IRANSansMobile_Medium',
- 	textAlign:'right',
  	fontSize:15,
  	color:'#2D2C2D',
  	marginRight:20,
@@ -54,7 +53,6 @@ import {StyleSheet} from 'react-native';
    borderColor:'#8B8A8B',
    borderWidth:1,
    padding:10,
-   textAlign:'right',
    fontFamily:'IRANSansMobile_Light',
  },
  box:{
@@ -92,6 +90,24 @@ import {StyleSheet} from 'react-native';
   textAlign:'center',
   fontFamily:'IRANSansMobile_Light',
  },
-
+ headerTitle:{
+    ...Platform.select({
+      ios:{
+         fontFamily:'IRANSansMobile',
+         fontWeight:'bold',
+      },
+      android:{
+        fontFamily: 'IRANSansMobile_Bold',
+      }
+    }),  
+    margin:10,
+  },
+  headerRight:{
+      flexDirection:'row',
+      width:90,
+      justifyContent:'space-between',
+      marginRight:10,
+  },
+ 
 });
  export default styles;
